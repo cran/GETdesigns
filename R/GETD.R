@@ -116,23 +116,16 @@ cat("\n")
 ############
 ########P matrix generation
 v=max(final)
-p_matrix<-matrix(,nrow=0,ncol=max(final))
+p_matrix<-matrix(0,nrow=choose(v,2),ncol=max(final))
 #########
-i=1
-j=1
-while(i<=(choose(v,2))){
-  j=i+1
-  while(j<=v){
-    p1<-matrix(0,nrow=1,ncol=v)
-    p1[i]<-1
-    p1[j]<--1
-    p_matrix<-rbind(p_matrix,p1)
-    j=j+1
-  }
-  i=i+1
+elepos<-t(combn(v,2))
+#####
+for(i in 1:nrow(p_matrix)){
+  p_matrix[i,(elepos[i,])]<-c(1,-1)
 }
 ########## Variance covariance part
-variances<-(p_matrix)%*%MASS::ginv(C_matrix)%*%t(p_matrix)
+variances<-(p_matrix)%*%MASS::ginv(C_matrix)
+variances<-variances%*%t(p_matrix)
 #######variance part
 var<-diag(variances)
 ########## avg variance
