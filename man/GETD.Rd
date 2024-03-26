@@ -4,22 +4,24 @@
 \alias{GETD}
 \title{Generalized Extended Triangular Designs}
 \usage{
-GETD(n, m)
+GETD(n, m, trt = 1)
 }
 \arguments{
 \item{n}{It is a natural number such that n >= 2m ; m >= 2}
 
 \item{m}{It is a natural number such that m >= 2}
+
+\item{trt}{Provide any treatment number to know its all associates. By default it is 1.}
 }
 \value{
-This function for generates an m-associate (m >= 2) class PBIB design and its parameters, based on Generalized Triangular (GT) Association Scheme, along with its Information matrix, Average variance factor and canonical efficiency factor.
+This package generates an m-associate (m >= 2) class PBIB designs under GET Association Scheme. It also calculates the Information matrix, Average variance factor, canonical efficiency factor and different treatment associates of the generated designs.
 }
 \description{
-This package contains functions named GETD() for generating a m-associate (m >= 2) class PBIB designs and its parameters based on Generalized Triangular (GT) Association Scheme. It also calculates the Information matrix, Average variance factor and canonical efficiency factor of the generated design.
+This package contains a function named GETD() for generating m-associate (m>=2) class PBIB designs along with parameters (v, b, r, k and lambda_i, i = 1, 2,…,m) and the underlying Generalized Extended Triangular (GET) Association Scheme.
 }
 \examples{
 library(GETdesigns)
-GETD(6,2)
+GETD(6,2,1)
 }
 \references{
 1) R.C. Bose, K.R. Nair (1939)< https://www.jstor.org/stable/40383923>" Partially balanced incomplete block designs ".
